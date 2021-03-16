@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Locksafe</string>
+    <string name="name_hint">Name</string>
+    <string name="email_hint">Email</string>
+    <string name="password_hint">Password</string>
+    <string name ="enterpassword_hint">Enter Password</string>
+    <string name="txt_login"> Login</string>
+    <string name="txt_register">Register</string>
+    <string name="txt_encrypt">Encrypt</string>
+    <string name="txt_decrypt">Decrypt</string>
+    <string name ="not_member">Don\'t have an account? Register today</string>
+    <string name="already_member">Already have an account? Login</string>
+    <string name="confirm_password">Confirm Password</string>
+</resources>
