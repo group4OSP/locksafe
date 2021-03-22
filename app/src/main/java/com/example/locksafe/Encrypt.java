@@ -44,49 +44,58 @@ public class Encrypt extends AppCompatActivity {
         decryptbtn = (AppCompatButton) findViewById(R.id.decryptbtn);
         encrypt_output = (AppCompatTextView) findViewById(R.id.encrypt_output);
 
-        encryptbtn.setOnClickListener(new View.OnClickListener() {
+         encryptbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 try {
                     output = encrypt(txtEdit_enterpassword.getText().toString());
                     encrypt_output.setText(output);
-                } catch (UnsupportedEncodingException e) {
-                    e.printStackTrace();
-                } catch (NoSuchAlgorithmException e) {
-                    e.printStackTrace();
-                } catch (NoSuchPaddingException e) {
-                    e.printStackTrace();
-                } catch (IllegalBlockSizeException e) {
-                    e.printStackTrace();
-                } catch (BadPaddingException | InvalidKeyException e) {
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
         });
+        decryptbtn.setOnClickListener(new View.OnClickListener(){
 
-
-
-
+            @Override
+            public void onClick(View v) {
+                try {
+                    output = decrypt(output, txtEdit_enterpassword.getText().toString());
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                encrypt_output.setText(output);
+            }
+        });
     }
 
-    private String encrypt(String s) throws UnsupportedEncodingException, NoSuchAlgorithmException, NoSuchPaddingException, BadPaddingException, IllegalBlockSizeException, InvalidKeyException {
-        SecretKeySpec key = generateKey(s);
-        Cipher c = Cipher.getInstance(AES);
-        c.init(Cipher.ENCRYPT_MODE, key);
-        byte[] encVal = c.doFinal(s.getBytes());
-        String encryptedValue = Base64.encodeToString(encVal, Base64.DEFAULT);
-        return encryptedValue;
-
-
+    private String decrypt(String output, String password) throws Exception{
+        SecretKeySpec key = generateKey(password);
+        Cipher cipher = Cipher.getInstance(AES);
+        cipher.init(Cipher.DECRYPT_MODE, key);
+        byte[] decodeVal = Base64.decode(output, Base64.DEFAULT);
+        byte[] decryptVal = cipher.doFinal(decodeVal);
+        String decryptedVal = new String(decryptVal);
+        return decryptedVal;
     }
 
-    private SecretKeySpec generateKey(String s) throws NoSuchAlgorithmException, UnsupportedEncodingException {
-        final MessageDigest digest = MessageDigest.getInstance("SRA-256");
-        byte[] bytes = s.getBytes("UTF-8");
+    private String encrypt(String password) throws Exception {
+        SecretKeySpec key = generateKey(password);
+        Cipher cipher = Cipher.getInstance(AES);
+        cipher.init(Cipher.ENCRYPT_MODE, key);
+        byte[] encryptVal = cipher.doFinal(password.getBytes());
+        String encryptedVal = Base64.encodeToString(encryptVal, Base64.DEFAULT);
+        return encryptedVal;
+    }
+
+    private SecretKeySpec generateKey(String password) throws Exception {
+        final MessageDigest digest = MessageDigest.getInstance("SHA-256");
+        byte[] bytes = password.getBytes("UTF-8");
         digest.update(bytes, 0, bytes.length);
         byte[] key = digest.digest();
-        SecretKeySpec secretKeySpec = new SecretKeySpec(key, "AES");
-        return secretKeySpec;
+        SecretKeySpec sKeySpec = new SecretKeySpec(key, "AES");
+        return sKeySpec;
 
     }
 }
