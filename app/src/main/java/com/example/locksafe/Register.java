@@ -37,9 +37,13 @@ public class Register extends AppCompatActivity {
         setContentView(R.layout.activity_register);
 
         nestscroll = (NestedScrollView) findViewById(R.id.nestscroll);
+        txtIL_name = (TextInputLayout) findViewById(R.id.txtIL_name);
         txt_name = (TextInputEditText) findViewById(R.id.txt_name);
+        txtIL_email = (TextInputLayout)findViewById(R.id.txtIL_email);
         txt_email = (TextInputEditText) findViewById(R.id.txt_email);
+        txtIL_password = (TextInputLayout) findViewById(R.id.txtIL_password);
         txt_password = (TextInputEditText) findViewById(R.id.txt_password);
+        txtIL_cnfpassword = (TextInputLayout) findViewById(R.id.txtIL_cnfpassword);
         txt_cnfpassword = (TextInputEditText) findViewById(R.id.txt_cnfpassword);
         registerbtn = (AppCompatButton) findViewById(R.id.registerbtn);
         login_link = (AppCompatTextView) findViewById(R.id.login_link);
