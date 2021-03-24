@@ -11,4 +11,5 @@
     <string name ="not_member">Don\'t have an account? Register today</string>
     <string name="already_member">Already have an account? Login</string>
     <string name="confirm_password">Confirm Password</string>
+    <string name="error_email">Error! Please enter email</string>
 </resources>
