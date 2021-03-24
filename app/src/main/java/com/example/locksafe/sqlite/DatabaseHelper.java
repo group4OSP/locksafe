@@ -47,6 +47,56 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.insert(TABLE_USER,null,vals);
         db.close();
     }
+    
+    public List<User> fetchUsers(){
+        String[] cols = {
+                KEY_ID,
+                KEY_NAME,
+                KEY_EMAIL,
+                KEY_PASSWORD
+        };
+        String order = KEY_NAME + " ASC";
+        List<User> uList = new ArrayList<User>();
+
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor c = db.query(TABLE_USER, cols, null,null,null,null, order);
+
+        if (c.moveToFirst()){
+            do{
+                User u = new User();
+                u.setId(Integer.parseInt(c.getString(c.getColumnIndex(KEY_ID))));
+                u.setName(c.getString(c.getColumnIndex(KEY_NAME)));
+                u.setEmail(c.getString(c.getColumnIndex(KEY_EMAIL)));
+                u.setPassword(c.getString(c.getColumnIndex(KEY_PASSWORD)));
+
+                uList.add(u);
+            } while (c.moveToNext());
+        }
+        c.close();
+        db.close();
+
+        return uList;
+    }
+
+    public void userUpdate(User u){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues vals = new ContentValues();
+        vals.put(KEY_NAME, u.getName());
+        vals.put(KEY_EMAIL, u.getEmail());
+        vals.put(KEY_PASSWORD, u.getPassword());
+
+        db.update(TABLE_USER, vals, KEY_ID + " = ?", new String[]{String.valueOf(u.getId())});
+        db.close();
+    }
+
+    public void delUser(User u){
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(TABLE_USER, KEY_ID + " = ?", new String[]{String.valueOf(u.getId())});
+        db.close();
+    }
+
+    
 
     public boolean userCheck(String email) {
         String[] cols = {
