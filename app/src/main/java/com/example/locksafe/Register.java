@@ -17,13 +17,17 @@ import com.google.android.material.textfield.TextInputEditText;
 public class Register extends AppCompatActivity {
 
     private NestedScrollView nestscroll;
+    private TextInputLayout txtIL_name;
     private TextInputEditText txt_name;
+    private TextInputLayout txtIL_email;
     private TextInputEditText txt_email;
+    private TextInputLayout txtIL_password;
     private TextInputEditText txt_password;
+    private TextInputLayout txtIL_cnfpassword;
     private TextInputEditText txt_cnfpassword;
     private AppCompatButton registerbtn;
     private AppCompatTextView login_link;
-
+    private ValidateInput validateInput;
     private DatabaseHelper dbhelper;
     private User u;
 
@@ -40,6 +44,8 @@ public class Register extends AppCompatActivity {
         registerbtn = (AppCompatButton) findViewById(R.id.registerbtn);
         login_link = (AppCompatTextView) findViewById(R.id.login_link);
         dbhelper = new DatabaseHelper(Register.this);
+        validateInput = new ValidateInput(Register.this);
+        u = new User();
 
 
 
@@ -51,6 +57,8 @@ public class Register extends AppCompatActivity {
                     u.setEmail(txt_email.getText().toString().trim());
                     u.setPassword(txt_password.getText().toString().trim());
                     dbhelper.addUser(u);
+                    Intent registerIntent = new Intent(Register.this, Encrypt.class);
+                    startActivity(registerIntent);
                     Toast.makeText(getApplicationContext(), "Sign Up Successful!", Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(getApplicationContext(), " Wrong Email or Password ", Toast.LENGTH_SHORT).show();
