@@ -1,7 +1,9 @@
 # License
+```
 This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 This program is distributed in the hope that it will be useful, but without any warranty, without even the implied warranty of merchantability or fitness for a particular purpose. See the GNU Affero General Public License for more details.
 Affero General Public License v3
+```
 
 # About LockSafe
 LockSafe is an open source password manager for individuals. It allows you to securely share and store credentials. For instance, the Wi-Fi password of your house, the administrator password of a router or your personal social media account passwords, all of them can be secured using LockSafe.
@@ -30,4 +32,6 @@ The LockSafe team will take the following actions:
 * Release new versions of all affected major versions.
 * Prominently feature the problem in the release announcement.
 * Give credit in the release announcement to the reporter if they so desire.
+
+
 
