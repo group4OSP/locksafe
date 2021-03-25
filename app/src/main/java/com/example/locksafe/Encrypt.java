@@ -9,6 +9,7 @@ import androidx.appcompat.widget.AppCompatButton;
 import androidx.appcompat.widget.AppCompatTextView;
 import androidx.core.widget.NestedScrollView;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
@@ -48,24 +49,45 @@ public class Encrypt extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                try {
-                    output = encrypt(txtEdit_enterpassword.getText().toString());
-                    encrypt_output.setText(output);
-                } catch (Exception e) {
-                    e.printStackTrace();
+                //check if password < 15 characters
+                if (txtEdit_enterpassword.length() < 15){
+                    Snackbar snackbar = Snackbar.make(findViewById(R.id.nestscroll), "Password cannot be less than 15 characters", Snackbar.LENGTH_LONG);
+                    snackbar.show();
+                } else {
+
+                    try {
+                        output = encrypt(txtEdit_enterpassword.getText().toString());
+                        encrypt_output.setText(output);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+
                 }
+
+
             }
         });
         decryptbtn.setOnClickListener(new View.OnClickListener(){
 
             @Override
             public void onClick(View v) {
-                try {
-                    output = decrypt(output, txtEdit_enterpassword.getText().toString());
-                } catch (Exception e) {
-                    e.printStackTrace();
+
+                //check if password < 15 characters
+                if (txtEdit_enterpassword.length() < 15){
+                    Snackbar snackbar = Snackbar.make(findViewById(R.id.nestscroll), "Password cannot be less than 15 characters", Snackbar.LENGTH_LONG);
+                    snackbar.show();
+                } else {
+
+                    try {
+                        output = decrypt(output, txtEdit_enterpassword.getText().toString());
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    encrypt_output.setText(output);
+
                 }
-                encrypt_output.setText(output);
+
+
             }
         });
     }

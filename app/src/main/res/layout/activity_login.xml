@@ -48,6 +48,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/password_hint"
+                android:inputType="textPassword"
                 android:textSize="23sp"
                 android:maxLines="1"
                 android:textColor="@color/colorText"

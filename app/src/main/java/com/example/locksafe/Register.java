@@ -11,8 +11,10 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.example.locksafe.model.User;
-import com.example.locksafe.sql.DatabaseHelper;
+
+import com.example.locksafe.sqlite.DatabaseHelper;
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 
 public class Register extends AppCompatActivity {
 
@@ -38,13 +40,13 @@ public class Register extends AppCompatActivity {
 
         nestscroll = (NestedScrollView) findViewById(R.id.nestscroll);
         txtIL_name = (TextInputLayout) findViewById(R.id.txtIL_name);
-        txt_name = (TextInputEditText) findViewById(R.id.txt_name);
+        txt_name = (TextInputEditText) findViewById(R.id.txtEdit_name);
         txtIL_email = (TextInputLayout)findViewById(R.id.txtIL_email);
-        txt_email = (TextInputEditText) findViewById(R.id.txt_email);
+        txt_email = (TextInputEditText) findViewById(R.id.txtEdit_email);
         txtIL_password = (TextInputLayout) findViewById(R.id.txtIL_password);
-        txt_password = (TextInputEditText) findViewById(R.id.txt_password);
+        txt_password = (TextInputEditText) findViewById(R.id.txtEdit_password);
         txtIL_cnfpassword = (TextInputLayout) findViewById(R.id.txtIL_cnfpassword);
-        txt_cnfpassword = (TextInputEditText) findViewById(R.id.txt_cnfpassword);
+        txt_cnfpassword = (TextInputEditText) findViewById(R.id.txtEdit_cnfpassword);
         registerbtn = (AppCompatButton) findViewById(R.id.registerbtn);
         login_link = (AppCompatTextView) findViewById(R.id.login_link);
         dbhelper = new DatabaseHelper(Register.this);

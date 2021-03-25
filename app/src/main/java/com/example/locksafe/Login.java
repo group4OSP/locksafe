@@ -10,8 +10,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-import com.example.locksafe.sql.DatabaseHelper;
+//fixed this error
+//import com.example.locksafe.sql.DatabaseHelper;
+import com.example.locksafe.sqlite.DatabaseHelper;
+import com.google.android.material.snackbar.BaseTransientBottomBar;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 
 public class Login extends AppCompatActivity {
     private NestedScrollView nestscroll;
@@ -32,9 +37,9 @@ public class Login extends AppCompatActivity {
 
         nestscroll = (NestedScrollView) findViewById(R.id.nestscroll);
         txtIL_email = (TextInputLayout) findViewById(R.id.txtIL_email);
-        txt_email = (TextInputEditText) findViewById(R.id.txt_email);
+        txt_email = (TextInputEditText) findViewById(R.id.txtEdit_email);//fixed from R.id.txt_email to match with layout
         txtIL_password = (TextInputLayout) findViewById(R.id.txtIL_password);
-        txt_password = (TextInputEditText) findViewById(R.id.txt_password);
+        txt_password = (TextInputEditText) findViewById(R.id.txtEdit_password);//fixed from R.id.txt_password to match with layout
         loginbtn = (AppCompatButton) findViewById(R.id.loginbtn);
         register_link = (AppCompatTextView) findViewById(R.id.register_link);
         dbhelper = new DatabaseHelper(Login.this);
@@ -72,16 +77,19 @@ public class Login extends AppCompatActivity {
                 }
 
 
-                if (dbhelper.userCheck(txt_email.getText().toString().trim(), txt_password.getText().toString().trim())) {
-                    Intent loginIntent = new Intent(Login.this, Encrypt.class);
-                    loginIntent.putExtra("EMAIL", txt_email.getText().toString().trim());
-                    emptyText();
-                    Login.this.startActivity(loginIntent);
-                    Toast.makeText(getApplicationContext(), "Login Successful", Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(getApplicationContext(), " Can't login ", Toast.LENGTH_SHORT).show();
 
-                }
+                    if (dbhelper.userCheck(txt_email.getText().toString().trim(), txt_password.getText().toString().trim())) {
+                        Intent loginIntent = new Intent(Login.this, Encrypt.class);
+                        loginIntent.putExtra("EMAIL", txt_email.getText().toString().trim());
+                        emptyText();
+                        Login.this.startActivity(loginIntent);
+                        Toast.makeText(getApplicationContext(), "Login Successful", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(getApplicationContext(), " Can't login ", Toast.LENGTH_SHORT).show();
+
+                    }
+
+
             }
 
 
