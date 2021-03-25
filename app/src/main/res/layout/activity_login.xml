@@ -47,6 +47,7 @@
                 android:id="@+id/txtEdit_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:inputType="textPassword"
                 android:hint="@string/password_hint"
                 android:textSize="23sp"
                 android:maxLines="1"
