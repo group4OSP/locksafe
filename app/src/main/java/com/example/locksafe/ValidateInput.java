@@ -12,6 +12,8 @@ import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.regex.Pattern;
 
+//I renamed ValidInput.java to ValidateInput.java because it was throwing errors
+
 public class ValidateInput {
     private Context context;
 
