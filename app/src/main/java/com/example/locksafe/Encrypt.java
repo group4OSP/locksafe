@@ -101,13 +101,20 @@ public class Encrypt extends AppCompatActivity {
                 int rightLimit = 122; // character 'z'
                 int targetStringLength = 20;
                 Random random = new Random();
-                StringBuilder buffer = new StringBuilder(targetStringLength);
+                // The StringBuilder class creates a mutable sequence of characters
+                // This line constructs a string builder with no characters in it and an initial
+                // capacity specified by the argument, in this case 20
+                StringBuilder str = new StringBuilder(targetStringLength);
+                // Loop that appends characters one by one to str
                 for (int i = 0; i < targetStringLength; i++) {
+                    // Generates random floats between 0.0 and 1.0 then converts
+                    // them to ints between the limits set
                     int randomLimitedInt = leftLimit + (int)
                             (random.nextFloat() * (rightLimit - leftLimit + 1));
-                    buffer.append((char) randomLimitedInt);
+                    str.append((char) randomLimitedInt);
                 }
-                String generatedString = buffer.toString();
+                String generatedString = str.toString();
+                // Displays the new random password in the text view
                 txtEdit_enterpassword.setText(generatedString);
             }
         });
