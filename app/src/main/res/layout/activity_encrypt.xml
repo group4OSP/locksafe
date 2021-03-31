@@ -20,11 +20,30 @@
             android:layout_marginTop="10dp"
             android:src="@drawable/logo"/>
 
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/random_btn"
+            android:background="@color/colorGeneralbtn"
+            android:textColor="@color/colorText"
+            android:text="@string/random_password"
+            android:textSize="20sp"/>
+
+        <TextView
+            android:id="@+id/text_or"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="30dp"
+            android:textSize="20sp"
+            android:textColor="@color/colorText"
+            android:text="@string/or" />
+
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/txtIL_encrypt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp">
+            android:layout_marginTop="20dp">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/txtEdit_enterpassword"
@@ -37,15 +56,17 @@
                 android:textColor="@color/colorText"
                 android:textColorHint="@color/colorText" />
         </com.google.android.material.textfield.TextInputLayout>
+
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/encryptbtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="50dp"
             android:background="@color/colorGeneralbtn"
             android:textColor="@color/colorText"
             android:text="@string/txt_encrypt"
             android:textSize="20sp"/>
+
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/decryptbtn"
             android:layout_width="match_parent"
@@ -65,9 +86,6 @@
             android:textSize="20sp"
             android:text=""
             android:textColor="@color/colorText"/>
-
-
-
 
 
     </androidx.appcompat.widget.LinearLayoutCompat>
