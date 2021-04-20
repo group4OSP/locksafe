@@ -8,6 +8,7 @@
     <string name="txt_register">Register</string>
     <string name="txt_encrypt">Encrypt</string>
     <string name="txt_decrypt">Decrypt</string>
+    <string name="txt_logout">Logout</string>
     <string name ="not_member">Don\'t have an account? Register today</string>
     <string name="already_member">Already have an account? Login</string>
     <string name="confirm_password">Confirm Password</string>

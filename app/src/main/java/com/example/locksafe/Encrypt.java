@@ -1,9 +1,11 @@
 package com.example.locksafe;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Base64;
 import android.view.View;
 
+import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.appcompat.widget.AppCompatTextView;
@@ -30,6 +32,7 @@ public class Encrypt extends AppCompatActivity {
     private TextInputEditText txtEdit_enterpassword;
     private AppCompatButton encryptbtn;
     private AppCompatButton decryptbtn;
+    private AppCompatButton logoutbtn;
     private AppCompatTextView encrypt_output;
     private String output;
 
@@ -43,6 +46,7 @@ public class Encrypt extends AppCompatActivity {
         txtEdit_enterpassword = (TextInputEditText) findViewById(R.id.txtEdit_enterpassword);
         encryptbtn = (AppCompatButton) findViewById(R.id.encryptbtn);
         decryptbtn = (AppCompatButton) findViewById(R.id.decryptbtn);
+        logoutbtn = (AppCompatButton) findViewById(R.id.logoutbtn);
         encrypt_output = (AppCompatTextView) findViewById(R.id.encrypt_output);
 
          encryptbtn.setOnClickListener(new View.OnClickListener() {
@@ -90,6 +94,21 @@ public class Encrypt extends AppCompatActivity {
 
             }
         });
+
+        logoutbtn.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+
+                finish();
+                //starting login activity
+                startActivity(new Intent(getApplicationContext(), Login.class));
+                Toast.makeText(getApplicationContext(), "Logged out", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+
     }
 
     private String decrypt(String output, String password) throws Exception{

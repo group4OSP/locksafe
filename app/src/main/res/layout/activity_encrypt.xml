@@ -66,8 +66,15 @@
             android:text=""
             android:textColor="@color/colorText"/>
 
-
-
+        <androidx.appcompat.widget.AppCompatButton
+          android:id="@+id/logoutbtn"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="40dp"
+          android:background="@color/colorGeneralbtn"
+          android:textColor="@color/colorText"
+          android:text="@string/txt_logout"
+          android:textSize="20sp"/>
 
 
     </androidx.appcompat.widget.LinearLayoutCompat>
