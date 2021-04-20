@@ -92,6 +92,10 @@ public class Encrypt extends AppCompatActivity {
         });
     }
 
+    @Override
+    public void onBackPressed() {
+    }
+
     private String decrypt(String output, String password) throws Exception{
         SecretKeySpec key = generateKey(password);
         Cipher cipher = Cipher.getInstance(AES);
