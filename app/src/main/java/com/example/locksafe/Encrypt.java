@@ -14,9 +14,12 @@ import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
 import java.io.UnsupportedEncodingException;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.security.InvalidKeyException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.Random;
 
 import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
@@ -27,6 +30,7 @@ import javax.crypto.spec.SecretKeySpec;
 public class Encrypt extends AppCompatActivity {
     private NestedScrollView nestscroll;
     private TextInputLayout txtIL_encrypt;
+    private AppCompatButton randombtn;
     private TextInputEditText txtEdit_enterpassword;
     private AppCompatButton encryptbtn;
     private AppCompatButton decryptbtn;
@@ -40,6 +44,7 @@ public class Encrypt extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_encrypt);
+        randombtn = (AppCompatButton) findViewById(R.id.random_btn);
         txtEdit_enterpassword = (TextInputEditText) findViewById(R.id.txtEdit_enterpassword);
         encryptbtn = (AppCompatButton) findViewById(R.id.encryptbtn);
         decryptbtn = (AppCompatButton) findViewById(R.id.decryptbtn);
@@ -67,6 +72,7 @@ public class Encrypt extends AppCompatActivity {
 
             }
         });
+
         decryptbtn.setOnClickListener(new View.OnClickListener(){
 
             @Override
@@ -84,10 +90,32 @@ public class Encrypt extends AppCompatActivity {
                         e.printStackTrace();
                     }
                     encrypt_output.setText(output);
-
                 }
+            }
+        });
 
-
+        randombtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                int leftLimit = 48; // character '0'
+                int rightLimit = 122; // character 'z'
+                int targetStringLength = 20;
+                Random random = new Random();
+                // The StringBuilder class creates a mutable sequence of characters
+                // This line constructs a string builder with no characters in it and an initial
+                // capacity specified by the argument, in this case 20
+                StringBuilder str = new StringBuilder(targetStringLength);
+                // Loop that appends characters one by one to str
+                for (int i = 0; i < targetStringLength; i++) {
+                    // Generates random floats between 0.0 and 1.0 then converts
+                    // them to ints between the limits set
+                    int randomLimitedInt = leftLimit + (int)
+                            (random.nextFloat() * (rightLimit - leftLimit + 1));
+                    str.append((char) randomLimitedInt);
+                }
+                String generatedString = str.toString();
+                // Displays the new random password in the text view
+                txtEdit_enterpassword.setText(generatedString);
             }
         });
     }
