@@ -35,5 +35,6 @@ The LockSafe team will take the following actions:
 * Prominently feature the problem in the release announcement.
 * Give credit in the release announcement to the reporter if they so desire.
 
-
+# Features added
+Generate Random Password - added on 20.04.21
 

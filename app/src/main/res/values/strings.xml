@@ -12,4 +12,6 @@
     <string name="already_member">Already have an account? Login</string>
     <string name="confirm_password">Confirm Password</string>
     <string name="error_email">Error! Please enter a valid email</string>
+    <string name="random_password">Random Password</string>
+    <string name="or">Or</string>
 </resources>
