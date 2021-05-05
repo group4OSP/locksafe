@@ -1,14 +1,25 @@
 package com.example.locksafe;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Base64;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 
+import android.widget.ScrollView;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.appcompat.widget.AppCompatTextView;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
 import androidx.core.widget.NestedScrollView;
 
+import androidx.drawerlayout.widget.DrawerLayout;
+import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.navigation.NavigationView.OnNavigationItemSelectedListener;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
@@ -27,7 +38,7 @@ import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.spec.SecretKeySpec;
 
-public class Encrypt extends AppCompatActivity {
+public class Encrypt extends AppCompatActivity  {
     private NestedScrollView nestscroll;
     private TextInputLayout txtIL_encrypt;
     private AppCompatButton randombtn;
@@ -49,6 +60,7 @@ public class Encrypt extends AppCompatActivity {
         encryptbtn = (AppCompatButton) findViewById(R.id.encryptbtn);
         decryptbtn = (AppCompatButton) findViewById(R.id.decryptbtn);
         encrypt_output = (AppCompatTextView) findViewById(R.id.encrypt_output);
+
 
          encryptbtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -120,9 +132,8 @@ public class Encrypt extends AppCompatActivity {
         });
     }
 
-    @Override
-    public void onBackPressed() {
-    }
+
+
 
     private String decrypt(String output, String password) throws Exception{
         SecretKeySpec key = generateKey(password);
@@ -152,4 +163,7 @@ public class Encrypt extends AppCompatActivity {
         return sKeySpec;
 
     }
+
+
 }
+

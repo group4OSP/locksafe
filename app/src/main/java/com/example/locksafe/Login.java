@@ -23,7 +23,7 @@ public class Login extends AppCompatActivity {
     private TextInputLayout txtIL_email;
     private TextInputEditText txt_email;
     private TextInputLayout txtIL_password;
-    private  TextInputEditText txt_password;
+    private TextInputEditText txt_password;
     private AppCompatButton loginbtn;
     private AppCompatTextView register_link;
     private DatabaseHelper dbhelper;
@@ -79,13 +79,13 @@ public class Login extends AppCompatActivity {
 
 
                     if (dbhelper.userCheck(txt_email.getText().toString().trim(), txt_password.getText().toString().trim())) {
-                        Intent loginIntent = new Intent(Login.this, Encrypt.class);
+                        Intent loginIntent = new Intent(Login.this, Home.class);
                         loginIntent.putExtra("EMAIL", txt_email.getText().toString().trim());
                         emptyText();
                         Login.this.startActivity(loginIntent);
-                        Toast.makeText(getApplicationContext(), "Login Successful", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), R.string.login_successful, Toast.LENGTH_SHORT).show();
                     } else {
-                        Toast.makeText(getApplicationContext(), " Can't login ", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), R.string.login_unsuccessful, Toast.LENGTH_SHORT).show();
 
                     }
 

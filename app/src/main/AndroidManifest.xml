@@ -23,6 +23,10 @@
         <activity android:name=".Encrypt" >
             
         </activity>
+        <activity android:name=".Home" >
+
+        </activity>
+        <activity android:name=".Rating" />
     </application>
 
 </manifest>
