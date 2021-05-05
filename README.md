@@ -10,6 +10,15 @@
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 ![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white)
 
+## Table of Contents:
+
+- [About LockSafe](#about-locksafe)
+- [Images](#images)
+- [Installing LockSafe](#installing-locksafe)
+- [Reporting a security issue](#reporting-a-security-issue)
+- [Features added](#features-added)
+- [License](#license)
+
 # About LockSafe
 LockSafe is an open source password manager for individuals. It allows you to securely share and store credentials. For instance, the Wi-Fi password of your house, the administrator password of a router or your personal social media account passwords, all of them can be secured using LockSafe.
 LockSafe is different from the other password managers because:
@@ -19,8 +28,8 @@ LockSafe is different from the other password managers because:
 * It is easy to use for both novices and IT professionals alike
 Find out more at: “our website link will go here” 
 
-# How does it look like?
- ![image](https://user-images.githubusercontent.com/48395721/111170060-72f4c100-859b-11eb-862b-bf1e377a12ef.png)
+# Images
+![finalupdate](https://user-images.githubusercontent.com/39123264/117207129-824df900-adeb-11eb-8130-52e8ff79f5ed.png)
 
 # Installing LockSafe
 You can install LockSafe on your own machine. Follow the instructions on the website “our link will be here” 
