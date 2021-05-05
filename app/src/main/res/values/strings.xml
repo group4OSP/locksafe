@@ -12,6 +12,17 @@
     <string name="already_member">Already have an account? Login</string>
     <string name="confirm_password">Confirm Password</string>
     <string name="error_email">Error! Please enter a valid email</string>
+    <string name="error_password_match">Password do not match!</string>
     <string name="random_password">Random Password</string>
+    <string name="passencrypt"> Password Encryption</string>
+    <string name="imgencrypt"> Image Encryption</string>
     <string name="or">Or</string>
+    <string name="navigation_open">Open Nav</string>
+    <string name="navigation_close">Close Nav</string>
+    <string name="logout"> Log Out</string>
+    <string name="rating">Rate Us!</string>
+    <string name="login_successful">Login Successful</string>
+    <string name="login_unsuccessful">Unable to login </string>
+    <string name="register_successful">Sign Up Successful!</string>
+    <string name="register_unsuccessful">Sign up failed</string>
 </resources>

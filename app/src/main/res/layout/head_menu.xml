@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="match_parent"
+  android:layout_height="200dp"
+  android:orientation="vertical"
+  android:background="@color/colorGeneralbtn"
+  android:gravity="bottom"
+  android:padding="20dp">
+
+  <ImageView
+    android:layout_width="222dp"
+    android:layout_height="113dp"
+    android:src="@drawable/logo" />
+  <TextView
+    android:id="@+id/txtView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="Keeping what matters most to you secure."
+    android:textAllCaps="false" />
+
+</LinearLayout>

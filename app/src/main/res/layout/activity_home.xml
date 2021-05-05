@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  tools:context=".Home"
+  android:id="@+id/drawerlayout"
+  android:fitsSystemWindows="true"
+  tools:openDrawer="start">
+
+  <androidx.appcompat.widget.Toolbar
+    android:id="@+id/tool_bar"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:clickable="true"
+    android:minHeight="?attr/actionBarSize"
+    android:theme="?attr/actionBarTheme"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:navigationIcon="@drawable/menu"
+    android:focusable="true" />
+
+  <com.google.android.material.navigation.NavigationView
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:id="@+id/nav_view"
+    app:headerLayout="@layout/head_menu"
+    app:menu="@menu/main_menu"
+    android:layout_gravity="start"/>
+
+
+
+  <ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/scroll">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="vertical">
+
+      <androidx.appcompat.widget.AppCompatImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/logo"/>
+
+
+      <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/passencrypt_btn"
+        android:background="@color/colorGeneralbtn"
+        android:textColor="@color/colorText"
+        android:text="@string/passencrypt"
+        android:textSize="20sp"/>
+
+      <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/logout_btn"
+        android:background="@color/colorGeneralbtn"
+        android:textColor="@color/colorText"
+        android:layout_marginTop="50dp"
+        android:text="@string/logout"
+        android:textSize="20sp"/>
+
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+  </ScrollView>
+
+</androidx.drawerlayout.widget.DrawerLayout>

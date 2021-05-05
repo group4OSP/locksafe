@@ -58,16 +58,28 @@ public class Register extends AppCompatActivity {
         registerbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(!validateInput.isTextFilled(txt_email,txtIL_email, getString(R.string.error_email))){
+                    return;
+                }
+                if(!validateInput.isEmail(txt_email, txtIL_email,getString(R.string.error_email))){
+                    return;
+                }
+                if(!validateInput.isTextFilled(txt_password,txtIL_password,getString(R.string.enterpassword_hint))){
+                    return;
+                }
+                if(!validateInput.inputTextMatches(txt_password,txt_cnfpassword,txtIL_cnfpassword,getString(R.string.error_password_match))){
+                    return;
+                }
                 if(!dbhelper.userCheck(txt_email.getText().toString().trim())){
                     u.setName(txt_name.getText().toString().trim());
                     u.setEmail(txt_email.getText().toString().trim());
                     u.setPassword(txt_password.getText().toString().trim());
                     dbhelper.addUser(u);
-                    Intent registerIntent = new Intent(Register.this, Encrypt.class);
+                    Intent registerIntent = new Intent(Register.this, Home.class);
                     startActivity(registerIntent);
-                    Toast.makeText(getApplicationContext(), "Sign Up Successful!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), R.string.register_successful, Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(getApplicationContext(), " Wrong Email or Password ", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), R.string.register_unsuccessful, Toast.LENGTH_SHORT).show();
                 }
 
             }
